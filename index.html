@@ -1,0 +1,418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="TOJIVSALL - Anime, Gaming, Editing, BMW and ROR Community.">
+<title>TOJIVSALL | Official Universe</title>
+
+<style>
+:root{
+  --bg:#080808;
+  --panel:#141010;
+  --red:#d71920;
+  --bright:#ff3038;
+  --text:#f8f5f5;
+  --muted:#b9aaaa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:system-ui,Arial,sans-serif;overflow-x:hidden
+}
+a{color:inherit;text-decoration:none}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-2;pointer-events:none}
+.glow{
+  position:fixed;width:260px;height:260px;border-radius:50%;
+  filter:blur(110px);opacity:.17;pointer-events:none;z-index:-1;
+  animation:float 9s ease-in-out infinite alternate
+}
+.glow.one{background:#ff0000;top:5%;left:-130px}
+.glow.two{background:#9b0000;bottom:5%;right:-130px;animation-delay:-4s}
+@keyframes float{to{transform:translate(65px,55px)}}
+
+header{
+  position:sticky;top:0;z-index:10;padding:13px 6%;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  background:#080808ed;backdrop-filter:blur(15px);
+  border-bottom:1px solid #ff30382b
+}
+.logo{display:flex;align-items:center;gap:9px;font-weight:1000;letter-spacing:1px}
+.logo img{
+  width:43px;height:43px;object-fit:cover;object-position:center 20%;
+  border-radius:50%;border:2px solid var(--red);
+  box-shadow:0 0 17px #e0000055
+}
+.logo span{font-size:20px}
+.logo b{color:var(--bright)}
+nav{display:flex;gap:17px}
+nav a{font-size:12px;color:#d5caca;transition:.2s}
+nav a:hover{color:var(--bright)}
+
+.hero{
+  min-height:79vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:80px 20px;position:relative
+}
+.pill{
+  border:1px solid #ff30384f;color:#ff777c;border-radius:40px;
+  padding:9px 15px;font-size:10px;letter-spacing:2px;
+  animation:appear .8s both
+}
+h1{
+  font-size:clamp(43px,10vw,88px);line-height:1.08;
+  font-weight:1000;letter-spacing:-2px;margin:25px 0;
+  animation:appear .9s .1s both
+}
+.gradient{
+  background:linear-gradient(90deg,#fff,#ff343b,#a00000,#ff6469,#fff);
+  background-size:250% auto;color:transparent;
+  -webkit-background-clip:text;background-clip:text;
+  animation:shine 5s linear infinite
+}
+@keyframes shine{to{background-position:250% center}}
+.hero p{max-width:550px;color:var(--muted);line-height:1.9;animation:appear 1s .2s both}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:13px 19px;border-radius:8px;
+  border:1px solid #ff30384a;
+  background:linear-gradient(110deg,#850000,#d71920);
+  color:white;font-size:12px;font-weight:850;cursor:pointer;
+  transition:.25s
+}
+.btn:hover{transform:translateY(-4px);box-shadow:0 0 27px #d7192045}
+.btn.secondary{background:#ffffff07;border-color:#ffffff25}
+@keyframes appear{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.stats{
+  display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+  padding:23px 10px;border-block:1px solid #ffffff12;background:#ffffff03
+}
+.stat{text-align:center;color:var(--muted);font-size:11px}
+.stat strong{display:block;color:#ff6268;font-size:15px;margin-bottom:5px}
+
+section{padding:70px 7%;scroll-margin-top:60px}
+.heading{text-align:center;margin-bottom:35px}
+.eyebrow{font-size:10px;letter-spacing:3px;color:#ff555b;font-weight:900}
+h2{font-size:clamp(27px,5vw,39px);margin:10px 0}
+.heading p{color:var(--muted);font-size:13px;line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.card{
+  padding:25px;position:relative;overflow:hidden;
+  border:1px solid #ffffff13;border-radius:15px;
+  background:linear-gradient(145deg,#191010,#0e0b0b);
+  transition:transform .3s,border-color .3s,box-shadow .3s
+}
+.card:after{
+  content:"";position:absolute;top:0;left:-110%;width:55%;height:1px;
+  background:linear-gradient(90deg,transparent,#ff4545,transparent);
+  transition:left .7s
+}
+.card:hover:after{left:150%}
+.card:hover{transform:translateY(-6px);border-color:#e5282880;box-shadow:0 10px 35px #b0000018}
+.icon{font-size:34px;margin-bottom:17px}
+.card h3{font-size:20px;margin-bottom:10px}
+.card p{font-size:13px;line-height:1.8;color:var(--muted)}
+.card .tag{display:inline-block;margin-top:19px;font-size:11px;font-weight:850;color:#ff6268}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s,transform .65s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.profile{max-width:700px;margin:auto}
+.profile .card{text-align:center;padding:32px 22px}
+.avatar{
+  width:105px;height:105px;margin:0 auto 19px;overflow:hidden;
+  border-radius:50%;border:2px solid var(--red);
+  box-shadow:0 0 27px #d719204d;animation:pulse 3s infinite
+}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
+@keyframes pulse{50%{box-shadow:0 0 36px #e0000070}}
+.profile h3{font-size:27px;margin-bottom:10px}
+.bio{max-width:490px;margin:0 auto;color:var(--muted);font-size:13px;line-height:1.9}
+.badges{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin:22px 0}
+.badge{border:1px solid #ff30382d;border-radius:30px;padding:8px 11px;color:#ffb6b8;background:#ff000008;font-size:10px}
+
+.searchbox{max-width:600px;margin:auto}
+.searchbox input{
+  width:100%;padding:15px;border-radius:10px;
+  border:1px solid #ff30384a;background:#110d0d;color:white;outline:none
+}
+.searchbox input:focus{border-color:var(--bright);box-shadow:0 0 20px #e0000020}
+#results{text-align:center;color:#ff777c;font-size:13px;margin-top:17px;min-height:22px}
+.socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
+footer{
+  text-align:center;padding:30px 15px;border-top:1px solid #ffffff12;
+  color:#a99a9a;font-size:11px;line-height:2
+}
+footer a{color:#ff6268}
+#topBtn{
+  position:fixed;bottom:20px;right:18px;width:43px;height:43px;
+  background:#1a0b0b;border:1px solid #ff3038;border-radius:10px;
+  color:white;font-size:21px;opacity:0;pointer-events:none;z-index:5
+}
+#topBtn.show{opacity:1;pointer-events:auto}
+
+@media(max-width:700px){
+  header{padding:12px 4%;flex-wrap:wrap}
+  .logo span{font-size:18px}
+  nav{gap:12px}
+  nav a{font-size:11px}
+  .hero{min-height:72vh;padding:65px 18px}
+  .grid{grid-template-columns:1fr}
+  section{padding:55px 5%}
+  .stats{gap:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+
+<body>
+<canvas id="stars"></canvas>
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+<header>
+  <a class="logo" href="#home" aria-label="TOJIVSALL Home">
+    <img src="toji.png" alt="Toji logo"
+         onerror="this.style.display='none'">
+    <span>TOJIVSALL<b>®</b></span>
+  </a>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#worlds">Explore</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="pill">⚔ WELCOME TO MY UNIVERSE ⚔</div>
+  <h1>ENTER THE<br><span class="gradient">TOJIVSALL</span><br>UNIVERSE</h1>
+  <p>Anime soul. Gaming spirit. Editing mindset.<br>
+  BMW dreams and community pride. One universe, limitless passion.</p>
+  <div class="actions">
+    <a class="btn" href="#worlds">EXPLORE UNIVERSE ↗</a>
+    <a class="btn secondary" href="https://www.instagram.com/sanskari_ror/" target="_blank" rel="noopener noreferrer">📸 INSTAGRAM</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><strong>⚡ ANIME</strong>Anime Lover</div>
+  <div class="stat"><strong>🎬 EDITING</strong>Creator Mindset</div>
+  <div class="stat"><strong>🎮 GAMING</strong>Game On</div>
+  <div class="stat"><strong>🏁 BMW</strong>Car Enthusiast</div>
+</div>
+
+<section id="worlds">
+  <div class="heading reveal">
+    <div class="eyebrow">CHOOSE YOUR WORLD</div>
+    <h2>Explore The <span class="gradient">Universe</span></h2>
+    <p>Four passions, one community, endless possibilities.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card reveal" data-world="anime">
+      <div class="icon">👹</div><h3>Anime World</h3>
+      <p>Anime characters, AMV inspiration, edits and dark anime aesthetics for true fans.</p>
+      <a class="tag" href="#search" data-search="anime">ENTER ANIME ↗</a>
+    </article>
+
+    <article class="card reveal" data-world="editing">
+      <div class="icon">🎬</div><h3>Editing Studio</h3>
+      <p>Explore transitions, effects, creative editing tips and ideas for your next video.</p>
+      <a class="tag" href="#search" data-search="editing">ENTER STUDIO ↗</a>
+    </article>
+
+    <article class="card reveal" data-world="gaming">
+      <div class="icon">🎮</div><h3>Gaming Arena</h3>
+      <p>PUBG Mobile, BGMI, gaming culture, gameplay inspiration and creator projects.</p>
+      <a class="tag" href="#search" data-search="gaming">ENTER ARENA ↗</a>
+    </article>
+
+    <article class="card reveal" data-world="bmw">
+      <div class="icon">🏎️</div><h3>BMW Garage</h3>
+      <p>Performance machines, legendary BMW designs and a passion for automotive culture.</p>
+      <a class="tag" href="#about">CAR ENTHUSIAST ↗</a>
+    </article>
+
+    <article class="card reveal" data-world="ror">
+      <div class="icon">❤️‍🔥</div><h3>ROR Community</h3>
+      <p>Haryana roots, community pride and a connection to Kurukshetra. Apni pehchaan.</p>
+      <a class="tag" href="#about">OUR IDENTITY ↗</a>
+    </article>
+
+    <article class="card reveal" data-world="creator">
+      <div class="icon">🌑</div><h3>Creator Zone</h3>
+      <p>A space for new ideas, digital projects and the journey of creative growth.</p>
+      <a class="tag" href="#contact">CONNECT ↗</a>
+    </article>
+  </div>
+</section>
+
+<section id="about">
+  <div class="heading reveal">
+    <div class="eyebrow">THE PERSON BEHIND THE BRAND</div>
+    <h2>My <span class="gradient">Identity</span></h2>
+    <p>My interests. My roots. My universe.</p>
+  </div>
+
+  <div class="profile reveal">
+    <div class="card">
+      <div class="avatar">
+        <img src="toji.png" alt="Toji anime profile"
+             onerror="this.parentElement.innerHTML='⚔️'">
+      </div>
+      <h3>TOJIVSALL</h3>
+      <p class="bio">Anime lover, gaming enthusiast, creative editor and BMW fan. Building my own digital universe with passion and imagination.</p>
+      <div class="badges">
+        <span class="badge">🏎️ BMW LOVER</span>
+        <span class="badge">👹 ANIME LOVER</span>
+        <span class="badge">🎮 GAMER</span>
+        <span class="badge">🎬 EDITOR</span>
+        <span class="badge">❤️‍🔥 ROR COMMUNITY</span>
+      </div>
+      <p class="bio">📍 Kurukshetra, Haryana, India 🇮🇳</p>
+      <p class="bio" style="margin-top:12px">Apni community, apni pehchaan.</p>
+      <div class="socials">
+        <a class="btn" href="https://www.instagram.com/sanskari_ror/" target="_blank" rel="noopener noreferrer">📸 FOLLOW @SANSKARI_ROR</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="search">
+  <div class="heading reveal">
+    <div class="eyebrow">FIND YOUR INTEREST</div>
+    <h2>Search The <span class="gradient">Universe</span></h2>
+    <p>Search anime, editing, gaming, BMW or ROR.</p>
+  </div>
+  <div class="searchbox reveal">
+    <input id="searchInput" type="search" placeholder="Search your interest..." aria-label="Search interests">
+    <div id="results" aria-live="polite">🩸 6 worlds waiting to be explored.</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="heading reveal">
+    <div class="eyebrow">STAY CONNECTED</div>
+    <h2>Join The <span class="gradient">Journey</span></h2>
+    <p>Follow the creator and explore more on Instagram.</p>
+    <div class="actions">
+      <a class="btn" href="https://www.instagram.com/sanskari_ror/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+      <a class="btn secondary" href="#home">BACK TO TOP ↑</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="logo" style="justify-content:center">TOJIVSALL<b style="color:#ff3038">®</b></div>
+  <p>ANIME • EDITING • GAMING • BMW • ROR COMMUNITY</p>
+  <p>Made with 🖤 in Kurukshetra, Haryana, India 🇮🇳</p>
+  <p>© <span id="year"></span> TOJIVSALL. All rights reserved.</p>
+  <p><a href="https://www.instagram.com/sanskari_ror/" target="_blank" rel="noopener noreferrer">@sanskari_ror on Instagram</a></p>
+</footer>
+
+<button id="topBtn" aria-label="Back to top">↑</button>
+
+<script>
+document.getElementById("year").textContent=new Date().getFullYear();
+
+/* Reveal animations */
+const revealEls=document.querySelectorAll(".reveal");
+if("IntersectionObserver" in window){
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.1});
+  revealEls.forEach(el=>observer.observe(el));
+}else{
+  revealEls.forEach(el=>el.classList.add("visible"));
+}
+
+/* Search cards */
+const input=document.getElementById("searchInput");
+const results=document.getElementById("results");
+const cards=[...document.querySelectorAll("[data-world]")];
+
+function searchWorlds(){
+  const q=input.value.trim().toLowerCase();
+  let count=0;
+  cards.forEach(card=>{
+    const match=!q||(card.innerText+" "+card.dataset.world).toLowerCase().includes(q);
+    card.style.display=match?"":"none";
+    if(match)count++;
+  });
+  results.textContent=q
+    ?(count?"Found "+count+" matching section(s) 🔥":"No results. Try anime, editing, gaming, BMW or ROR.")
+    :"🩸 6 worlds waiting to be explored.";
+}
+input.addEventListener("input",searchWorlds);
+
+document.querySelectorAll("[data-search]").forEach(link=>{
+  link.addEventListener("click",()=>{
+    input.value=link.dataset.search;
+    searchWorlds();
+  });
+});
+
+/* Back to top */
+const topBtn=document.getElementById("topBtn");
+window.addEventListener("scroll",()=>{
+  topBtn.classList.toggle("show",window.scrollY>400);
+},{passive:true});
+topBtn.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+/* Animated background */
+const canvas=document.getElementById("stars");
+const ctx=canvas.getContext("2d");
+let stars=[],w=0,h=0,dpr=1,frame;
+const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function resize(){
+  w=window.innerWidth;h=window.innerHeight;
+  dpr=Math.min(window.devicePixelRatio||1,2);
+  canvas.width=w*dpr;canvas.height=h*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  stars=Array.from({length:Math.min(65,Math.floor(w/7))},()=>({
+    x:Math.random()*w,y:Math.random()*h,
+    r:Math.random()*1.5+.3,s:Math.random()*.3+.08,
+    a:Math.random()*.6+.2
+  }));
+}
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  stars.forEach(s=>{
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle="rgba(255,65,65,"+s.a+")";
+    ctx.fill();
+    if(!reduced){
+      s.y-=s.s;
+      if(s.y<0){s.y=h;s.x=Math.random()*w;}
+    }
+  });
+  if(!reduced)frame=requestAnimationFrame(draw);
+}
+resize();draw();
+window.addEventListener("resize",()=>{
+  cancelAnimationFrame(frame);resize();draw();
+});
+</script>
+</body>
+</html>
+
